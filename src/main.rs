@@ -68,10 +68,8 @@ fn format_completion_time(t: Duration) -> String {
 fn main() {
     let mut game = FishingGame {
         st: Instant::now(),
-        c_fish: get_fish_count(),
+        c_fish: 0,
     };
-
-    game.count_fish();
 
     let mut complete = false;
     while complete == false {
