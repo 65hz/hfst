@@ -57,12 +57,12 @@ fn get_fish_count() -> i32 {
 }
 
 fn format_completion_time(t: Duration) -> String {
-    let _minutes = t.as_secs() / 60;
-    let _seconds = t.as_secs() % 60;
+    let minutes = t.as_secs() / 60;
+    let seconds = t.as_secs() % 60;
 
-    let _result: String = format!("{:?}m {:?}s", _minutes, _seconds);
+    let result: String = format!("{:?}m {:?}s", minutes, seconds);
 
-    _result
+    result
 }
 
 fn main() {
