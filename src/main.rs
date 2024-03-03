@@ -11,7 +11,7 @@
     input will be its own function without any methods.
 */
 
-use std::{io, time::{Instant, Duration}};
+use std::{io, time::{Duration, Instant}};
 
 struct FishingGame {
     st: Instant,
@@ -20,11 +20,11 @@ struct FishingGame {
 
 impl FishingGame {
     fn count_fish(&mut self) -> bool {
-        if self.c_fish < 100 {
+        if self.c_fish >= 100 {
             print!("GG! ");
             return true
         }
-
+        
         println!("You have collected {}, only {} to go!", self.c_fish, 100 - self.c_fish);
         false
     }
@@ -43,10 +43,11 @@ impl FishingGame {
 fn get_fish_count() -> i32 {
     let mut input = String::new();
     
-    println!("How much fish have you collected?: ");
+    println!("How much fish have you collected?");
     io::stdin().read_line(&mut input).expect("failed reading stdin");
+    let new_input = input.trim();
 
-    let number: i32 = input.parse::<i32>().expect("couldn't parse the number");
+    let number: i32 = new_input.parse::<i32>().expect("couldn't parse the number");
 
     if number < 0 {
         panic!("negative number spotted")
@@ -55,8 +56,13 @@ fn get_fish_count() -> i32 {
     number
 }
 
-fn format_completion_time(minutes: Duration, seconds: Duration) {
+fn format_completion_time(t: Duration) -> String {
+    let _minutes = t.as_secs() / 60;
+    let _seconds = t.as_secs() % 60;
 
+    let _result: String = format!("{:?}m {:?}s", _minutes, _seconds);
+
+    _result
 }
 
 fn main() {
@@ -65,11 +71,13 @@ fn main() {
         c_fish: get_fish_count(),
     };
 
+    game.count_fish();
+
     let mut complete = false;
     while complete == false {
-        game.play();
+        complete = game.play();
     }
 
     let et: Duration = game.st.elapsed();
-    println!("That took ")
+    println!("That took {}!", format_completion_time(et))
 }
