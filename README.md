@@ -9,7 +9,7 @@ One day while doing Wii Play 100 Fish attempts, I wanted to simplify the process
 Install [Rust](https://www.rust-lang.org/tools/install) and [Git](https://git-scm.com/download/win) and then run these commands:
 
 ```shell
-git clone -b rust https://github.com/65hz/100FishSpeedrunTool.git hfst
+git clone https://github.com/65hz/hfst.git
 cd hfst
 cargo install --path .
 ```
