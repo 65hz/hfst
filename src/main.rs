@@ -23,7 +23,7 @@ impl FishingGame {
             complete = self.count_fish();
         };
 
-        return true;
+        true
     }
 }
 
