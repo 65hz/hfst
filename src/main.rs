@@ -1,16 +1,3 @@
-/*
-    PLAN:
-    one struct called FishingGame containing:
-      st: Duration - the starting time, so i can then use it to get an elapsed time later on
-      c_fish: i32 - collected fish, keeps track of how much fish i have
-    
-    methods of FishingGame:
-      count_fish(k: u32) - completely unknown action
-      play() - no fucking clue
-
-    input will be its own function without any methods.
-*/
-
 use std::{io, time::{Duration, Instant}};
 
 struct FishingGame {

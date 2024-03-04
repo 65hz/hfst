@@ -6,14 +6,12 @@ One day while doing Wii Play 100 Fish attempts, I wanted to simplify the process
 
 ## Building
 
-[Install Rust](https://www.rust-lang.org/tools/install), and then build the code with
+Install [Rust](https://www.rust-lang.org/tools/install) and [Git](https://git-scm.com/download/win) and then run these commands:
 
 ```shell
-cargo build --release
+git clone -b rust https://github.com/65hz/100FishSpeedrunTool.git hfst
+cd hfst
+cargo install --path .
 ```
 
-and then run it with
-
-```shell
-./target/release/hfst.exe
-```
+This will automatically be added to your PATH; you can simply just run `hfst` on your terminal and you are done!
