@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "hundred-fish-speedrun-tool"
+name = "hfst"
 version = "0.1.0"
