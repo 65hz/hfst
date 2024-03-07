@@ -1,44 +1,49 @@
-use std::{io, time::{Duration, Instant}};
+use std::{
+    io,
+    time::{Duration, Instant},
+};
 
 struct FishingGame {
     st: Instant,
-    c_fish: i32,
+    c_fish: u32,
 }
 
 impl FishingGame {
     fn count_fish(&mut self) -> bool {
         if self.c_fish >= 100 {
             print!("GG! ");
-            return true
+            return true;
         }
-        
-        println!("You have collected {}, only {} to go!", self.c_fish, 100 - self.c_fish);
+
+        println!(
+            "You have collected {}, only {} to go!",
+            self.c_fish,
+            100 - self.c_fish
+        );
         false
     }
-    
+
     fn play(&mut self) -> bool {
         let mut complete: bool = false;
-        while complete == false {
-            self.c_fish = self.c_fish + get_fish_count();
+        while !complete {
+            self.c_fish += get_fish_count();
             complete = self.count_fish();
-        };
+        }
 
         true
     }
 }
 
-fn get_fish_count() -> i32 {
+fn get_fish_count() -> u32 {
     let mut input = String::new();
-    
+
     println!("How much fish have you collected?");
-    io::stdin().read_line(&mut input).expect("failed reading stdin");
+    io::stdin()
+        .read_line(&mut input)
+        .expect("failed reading stdin");
     let new_input = input.trim();
 
-    let number: i32 = new_input.parse::<i32>().expect("couldn't parse the number");
-
-    if number < 0 {
-        panic!("negative number spotted")
-    }
+    let number: u32 = new_input.parse::<u32>().expect("couldn't parse the number");
 
     number
 }
@@ -59,7 +64,7 @@ fn main() {
     };
 
     let mut complete = false;
-    while complete == false {
+    while !complete {
         complete = game.play();
     }
 
