@@ -35,7 +35,7 @@ impl FishingGame {
 }
 
 fn get_fish_count() -> u32 {
-    let mut input = String::new();
+    let mut input: String = String::new();
 
     println!("How much fish have you collected?");
     io::stdin()
